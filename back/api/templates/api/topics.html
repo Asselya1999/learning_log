@@ -1,0 +1,13 @@
+{% extends "api/base.html" %}
+{% block content %}
+    <p>Topics</p>
+    <ul>
+        {% for topic in topics %}
+        <li>
+            <a href="{% url 'api:topic' topic.id %}">{{ topic }}</a>
+        </li>
+        {% empty %}
+            <li>No topics have been added yet.</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
