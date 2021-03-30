@@ -80,4 +80,3 @@ def edit_entry(request, entry_id):
 
 
 
-
