@@ -1,14 +1,20 @@
 {% extends "api/base.html" %}
+{% load bootstrap4 %}
+{% block page_header %}
+    <h1>Topics</h1>
+    <h4><a href="{% url 'api:new_topic' %}">Add new topic</a></h4>
+{% endblock page_header %}
+
 {% block content %}
-    <p>Topics</p>
     <ul>
         {% for topic in topics %}
         <li>
-            <a href="{% url 'api:topic' topic.id %}">{{ topic }}</a>
+            <h4>
+                <a href="{% url 'api:topic' topic.id %}">{{ topic }}</a>
+            </h4>
         </li>
         {% empty %}
-            <li>No topics have been added yet.</li>
+        <li><h4>No topics have been added yet.</h4></li>
         {% endfor %}
     </ul>
-    <a href="{% url 'api:new_topic' %}">Add a new topic:</a>
 {% endblock content %}
